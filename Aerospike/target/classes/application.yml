@@ -1,0 +1,16 @@
+micronaut:
+  application:
+    name: aerospike
+  server:
+      port: 9091
+aerospike:
+  host: 127.0.0.1
+  port: 3000
+  namespace: test
+netty:
+    default:
+       allocator:
+         max-order: 3
+kafka:
+  bootstrap:
+    servers: localhost:9092

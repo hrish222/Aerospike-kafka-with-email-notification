@@ -1,0 +1,102 @@
+openapi: 3.0.1
+paths:
+  /Person/GetallEmployee:
+    get:
+      operationId: getAllPerson
+      responses:
+        "200":
+          description: getAllPerson 200 response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+  /Person/add:
+    post:
+      operationId: addPerson
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+        required: true
+      responses:
+        "200":
+          description: addPerson 200 response
+          content:
+            application/json:
+              schema:
+                type: string
+  /Person/delete/{id}:
+    delete:
+      operationId: deleteById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: deleteById 200 response
+          content:
+            application/json:
+              schema:
+                type: string
+  /Person/getemployee/{id}:
+    get:
+      operationId: getPersonById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: getPersonById 200 response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+  /Person/update/{id}:
+    put:
+      operationId: updatePerson
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+        required: true
+      responses:
+        "200":
+          description: updatePerson 200 response
+          content:
+            application/json:
+              schema:
+                type: string
+components:
+  schemas:
+    Person:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        email:
+          type: string
+        sal:
+          type: integer
+          format: int32
